@@ -19,5 +19,23 @@
             android:textSize="35dp"
             android:layout_gravity="center_horizontal"
             android:textStyle="bold" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/city1"
+            android:id="@+id/button" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/city2"
+            android:id="@+id/button2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/city3"
+            android:id="@+id/button3" />
     </LinearLayout>
 </RelativeLayout>
