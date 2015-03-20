@@ -1,5 +1,6 @@
 package appewtc.masterung.mycity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,19 +17,25 @@ public class MainActivity extends ActionBarActivity {
     }   // onCreate
 
     public void clickSakon(View view) {
-        intentToMaps();
+        intentToMaps(17.192068, 104.091615);
     }
 
 
     public void clickChiangmai(View view) {
-        intentToMaps();
+        intentToMaps(18.788931, 98.985657);
     }
 
     public void clickBangkok(View view) {
-        intentToMaps();
+        intentToMaps(13.741026, 100.524020);
     }
 
-    private void intentToMaps() {
+    private void intentToMaps(double douLat, double douLng) {
+
+        Intent objIntent = new Intent(MainActivity.this, MapsActivity.class);
+        objIntent.putExtra("Lat", douLat);
+        objIntent.putExtra("Lng", douLng);
+        startActivity(objIntent);
+
     }
 
 
