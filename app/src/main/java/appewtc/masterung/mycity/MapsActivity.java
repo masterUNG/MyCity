@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -13,7 +14,9 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private double douCenterLat, douCenterLng;
-    private LatLng latlngCenterMap, sakonMaker1, sakonMaker2, sakonMaker3, sakonMaker4;
+    private LatLng latlngCenterMap,
+            sakonMaker1, sakonMaker2, sakonMaker3, sakonMaker4,
+            chianMai1, chianMai2, chianMai3, chianMai4;
 
 
     @Override
@@ -47,15 +50,28 @@ public class MapsActivity extends FragmentActivity {
         sakonMaker4 = new LatLng(17.188281, 104.091062);
 
         mMap.addMarker(new MarkerOptions().position(sakonMaker1));
-        mMap.addMarker(new MarkerOptions().position(sakonMaker2));
-        mMap.addMarker(new MarkerOptions().position(sakonMaker3));
+        mMap.addMarker(new MarkerOptions()
+                .position(sakonMaker2)
+                .icon(BitmapDescriptorFactory
+                        .defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker3).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
         mMap.addMarker(new MarkerOptions().position(sakonMaker4));
 
+        //Chianmai
+        chianMai1 = new LatLng(18.797280, 98.976838);
+        chianMai2 = new LatLng(18.782938, 98.976580);
+        chianMai3 = new LatLng(18.780541, 98.992759);
+        chianMai4 = new LatLng(18.796224, 98.994004);
+
+        mMap.addMarker(new MarkerOptions().position(chianMai1).icon(BitmapDescriptorFactory.fromResource(R.drawable.build1)));
+        mMap.addMarker(new MarkerOptions().position(chianMai2).icon(BitmapDescriptorFactory.fromResource(R.drawable.build2)));
+        mMap.addMarker(new MarkerOptions().position(chianMai3).icon(BitmapDescriptorFactory.fromResource(R.drawable.build3)));
+        mMap.addMarker(new MarkerOptions().position(chianMai4).icon(BitmapDescriptorFactory.fromResource(R.drawable.build4)));
     }
 
     private void createMap() {
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 14));
 
     }
 
