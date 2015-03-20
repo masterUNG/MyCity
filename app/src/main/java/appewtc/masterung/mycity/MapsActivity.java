@@ -21,8 +21,8 @@ public class MapsActivity extends FragmentActivity {
             sakonMaker1, sakonMaker2, sakonMaker3, sakonMaker4,
             chianMai1, chianMai2, chianMai3, chianMai4,
             bkk1, bkk2, bkk3, bkk4;
-    private PolylineOptions bkkPolylineOptions;
-    private PolygonOptions bkkPolygonOptions;
+    private PolylineOptions bkkPolylineOptions, sakonPolylineOptions;
+    private PolygonOptions bkkPolygonOptions, chianmaiPolygonOptions;
 
 
     @Override
@@ -51,6 +51,8 @@ public class MapsActivity extends FragmentActivity {
         createPolygon();
 
 
+
+
     }   // onCreate
 
     private void createPolygon() {
@@ -71,6 +73,16 @@ public class MapsActivity extends FragmentActivity {
                 .fillColor(Color.argb(50, 219, 249, 21)).zIndex(5);
         mMap.addPolygon(bkkPolygonOptions);
 
+        chianmaiPolygonOptions = new PolygonOptions()
+                .add(chianMai1)
+                .add(chianMai2)
+                .add(chianMai3)
+                .add(chianMai4)
+                .add(chianMai1)
+                .fillColor(Color.argb(30, 21, 123, 249));
+        mMap.addPolygon(chianmaiPolygonOptions);
+
+
     }
 
     private void createPolyline() {
@@ -89,6 +101,16 @@ public class MapsActivity extends FragmentActivity {
                 .width(5)
                 .color(Color.RED).zIndex(20);
         mMap.addPolyline(bkkPolylineOptions);
+
+        sakonPolylineOptions = new PolylineOptions()
+                .add(sakonMaker1)
+                .add(sakonMaker2)
+                .add(sakonMaker3)
+                .add(sakonMaker4)
+                .add(sakonMaker1)
+                .width(10)
+                .color(Color.MAGENTA);
+        mMap.addPolyline(sakonPolylineOptions);
 
 
     }
@@ -120,7 +142,7 @@ public class MapsActivity extends FragmentActivity {
 
     private void createMap() {
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 17));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 15));
 
     }
 
