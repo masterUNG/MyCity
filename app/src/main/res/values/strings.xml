@@ -6,6 +6,7 @@
     <string name="city1">สกลนคร</string>
     <string name="city2">เชียงใหม่</string>
     <string name="city3">กรุงเทพ</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
