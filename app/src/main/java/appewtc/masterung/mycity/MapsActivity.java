@@ -49,11 +49,8 @@ public class MapsActivity extends FragmentActivity {
         sakonMaker3 = new LatLng(17.190812, 104.086739);
         sakonMaker4 = new LatLng(17.188281, 104.091062);
 
-        mMap.addMarker(new MarkerOptions().position(sakonMaker1));
-        mMap.addMarker(new MarkerOptions()
-                .position(sakonMaker2)
-                .icon(BitmapDescriptorFactory
-                        .defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker1).title("My Home").snippet("Home of Master UNG"));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker2).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).title("โรงเรียน").snippet("สถานศึกษาโรงเรียน"));
         mMap.addMarker(new MarkerOptions().position(sakonMaker3).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
         mMap.addMarker(new MarkerOptions().position(sakonMaker4));
 
