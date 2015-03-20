@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +13,22 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }   // onCreate
+
+    public void clickSakon(View view) {
+        intentToMaps();
+    }
+
+
+    public void clickChiangmai(View view) {
+        intentToMaps();
+    }
+
+    public void clickBangkok(View view) {
+        intentToMaps();
+    }
+
+    private void intentToMaps() {
     }
 
 
@@ -36,4 +53,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class

@@ -23,18 +23,21 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="clickSakon"
             android:text="@string/city1"
             android:id="@+id/button" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="clickChiangmai"
             android:text="@string/city2"
             android:id="@+id/button2" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="clickBangkok"
             android:text="@string/city3"
             android:id="@+id/button3" />
     </LinearLayout>
