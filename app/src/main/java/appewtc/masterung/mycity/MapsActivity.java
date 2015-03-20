@@ -1,5 +1,6 @@
 package appewtc.masterung.mycity;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -9,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity {
 
@@ -16,7 +19,10 @@ public class MapsActivity extends FragmentActivity {
     private double douCenterLat, douCenterLng;
     private LatLng latlngCenterMap,
             sakonMaker1, sakonMaker2, sakonMaker3, sakonMaker4,
-            chianMai1, chianMai2, chianMai3, chianMai4;
+            chianMai1, chianMai2, chianMai3, chianMai4,
+            bkk1, bkk2, bkk3, bkk4;
+    private PolylineOptions bkkPolylineOptions;
+    private PolygonOptions bkkPolygonOptions;
 
 
     @Override
@@ -38,8 +44,54 @@ public class MapsActivity extends FragmentActivity {
         //Create Maker
         createMaker();
 
+        //Create Polyline
+        createPolyline();
+
+        //Create Polygon
+        createPolygon();
+
 
     }   // onCreate
+
+    private void createPolygon() {
+
+        bkk1 = new LatLng(13.742303, 100.522781);
+        bkk2 = new LatLng(13.741980, 100.525109);
+        bkk3 = new LatLng(13.740333, 100.524798);
+        bkk4 = new LatLng(13.740687, 100.522513);
+
+        bkkPolygonOptions = new PolygonOptions();
+        bkkPolygonOptions.add(bkk1)
+                .add(bkk2)
+                .add(bkk3)
+                .add(bkk4)
+                .add(bkk1)
+                .strokeWidth(10)
+                .strokeColor(Color.BLUE)
+                .fillColor(Color.argb(50, 219, 249, 21)).zIndex(5);
+        mMap.addPolygon(bkkPolygonOptions);
+
+    }
+
+    private void createPolyline() {
+
+        bkk1 = new LatLng(13.742303, 100.522781);
+        bkk2 = new LatLng(13.741980, 100.525109);
+        bkk3 = new LatLng(13.740333, 100.524798);
+        bkk4 = new LatLng(13.740687, 100.522513);
+
+        bkkPolylineOptions = new PolylineOptions();
+        bkkPolylineOptions.add(bkk1)
+                .add(bkk2)
+                .add(bkk3)
+                .add(bkk4)
+                .add(bkk1)
+                .width(5)
+                .color(Color.RED).zIndex(20);
+        mMap.addPolyline(bkkPolylineOptions);
+
+
+    }
 
     private void createMaker() {
 
@@ -68,7 +120,7 @@ public class MapsActivity extends FragmentActivity {
 
     private void createMap() {
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 14));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 17));
 
     }
 
