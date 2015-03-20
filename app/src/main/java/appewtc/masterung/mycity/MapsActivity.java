@@ -1,6 +1,8 @@
 package appewtc.masterung.mycity;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -9,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -23,6 +26,7 @@ public class MapsActivity extends FragmentActivity {
             bkk1, bkk2, bkk3, bkk4;
     private PolylineOptions bkkPolylineOptions, sakonPolylineOptions;
     private PolygonOptions bkkPolygonOptions, chianmaiPolygonOptions;
+    private int intType = 0;
 
 
     @Override
@@ -50,10 +54,39 @@ public class MapsActivity extends FragmentActivity {
         //Create Polygon
         createPolygon();
 
+        //Show onClick
+        showOnClick();
 
+        //ClickOnMaker
+        clickOnMaker();
 
 
     }   // onCreate
+
+    private void clickOnMaker() {
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+
+                Intent objIntent = new Intent(Intent.ACTION_VIEW);
+                objIntent.setData(Uri.parse("http://androidthai.in.th"));
+                startActivity(objIntent);
+
+                return true;
+            }
+        });
+    }
+
+    private void showOnClick() {
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+
+                mMap.addMarker(new MarkerOptions().position(latLng));
+
+            }// event
+        });
+    }
 
     private void createPolygon() {
 
@@ -143,6 +176,22 @@ public class MapsActivity extends FragmentActivity {
     private void createMap() {
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 15));
+
+        intType = getIntent().getExtras().getInt("Type");
+        switch (intType) {
+            case 0:
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+            case 1:
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                break;
+            case 2:
+                mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                break;
+            case 3:
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                break;
+        }
 
     }
 

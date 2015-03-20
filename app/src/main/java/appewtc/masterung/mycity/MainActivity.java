@@ -10,6 +10,8 @@ import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
 
+    private int intTypeMap = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
         Intent objIntent = new Intent(MainActivity.this, MapsActivity.class);
         objIntent.putExtra("Lat", douLat);
         objIntent.putExtra("Lng", douLng);
+        objIntent.putExtra("Type", intTypeMap);
         startActivity(objIntent);
 
     }
@@ -48,15 +51,22 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.itemSatelite:
+                intTypeMap = 1;
+                break;
+            case R.id.itemTerrain:
+                intTypeMap = 2;
+                break;
+            case R.id.itemHybrid:
+                intTypeMap = 3;
+                break;
+            case R.id.itemNormal:
+                intTypeMap = 0;
+                break;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
