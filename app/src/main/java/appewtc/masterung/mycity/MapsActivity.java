@@ -13,7 +13,7 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private double douCenterLat, douCenterLng;
-    private LatLng latlngCenterMap;
+    private LatLng latlngCenterMap, sakonMaker1, sakonMaker2, sakonMaker3, sakonMaker4;
 
 
     @Override
@@ -32,12 +32,30 @@ public class MapsActivity extends FragmentActivity {
         //Create Map
         createMap();
 
+        //Create Maker
+        createMaker();
+
 
     }   // onCreate
 
+    private void createMaker() {
+
+        //For Sakon
+        sakonMaker1 = new LatLng(17.192647, 104.093637);
+        sakonMaker2 = new LatLng(17.194892, 104.089378);
+        sakonMaker3 = new LatLng(17.190812, 104.086739);
+        sakonMaker4 = new LatLng(17.188281, 104.091062);
+
+        mMap.addMarker(new MarkerOptions().position(sakonMaker1));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker2));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker3));
+        mMap.addMarker(new MarkerOptions().position(sakonMaker4));
+
+    }
+
     private void createMap() {
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 14));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlngCenterMap, 15));
 
     }
 
